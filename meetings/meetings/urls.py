@@ -16,8 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from . import views
+from contacts.views import log_in
 
 urlpatterns = [
+    url(r'^log_in',log_in),
     url(r'^admin/', admin.site.urls),
     url(r'^',views.main),
+
 ]

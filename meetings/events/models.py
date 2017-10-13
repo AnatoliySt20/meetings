@@ -1,17 +1,13 @@
 from django.db import models
-from people.models import User
-
+from contacts.models import MyUser
+# Create your models here.
 
 class Event(models.Model):
-    name = models.CharField(max_length=64, blank=True, null=True, default=None)
-    date = models.DateField()
-    address = models.CharField(max_length=128, blank=True, null=True, default=None)
-
-    def __str__(self):
-        return "%s" % self.name
-
+    address = models.CharField(max_length=64, blank=True, null=True, default=None)
+    description = models.TextField(blank=True, null=True, default=None)
+    is_active = models.BooleanField(default=True)
+    created = models.DateTimeField(auto_now_add=True, auto_now=False)
 
 class Member(models.Model):
-    event = models.ForeignKey(Event, blank=True, null=True, default=None)
-    user = models.ForeignKey(User, blank=True, null=True, default=None)
-    will_come = models.BooleanField(default=False)
+    participant = models.ForeignKey(MyUser, blank=True, default=None)
+    participation = models.ForeignKey(Event, blank=True, default=None)

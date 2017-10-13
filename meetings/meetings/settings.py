@@ -37,8 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'people',
-    'events',
+
+    'contacts',
+    'events'
 ]
 
 MIDDLEWARE = [
@@ -128,3 +129,5 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, "static",),)
 MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(BASE_DIR,"static", "img")
 MEDIA_ROOT = os.path.join(BASE_DIR, "static", "media/personal_images")
+
+AUTH_USER_MODEL = 'contacts.MyUser'
