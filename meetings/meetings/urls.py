@@ -16,11 +16,15 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from . import views
-from contacts.views import log_in
+from contacts.views import log_in, register_user
+from events.views import event, register_event
 
 urlpatterns = [
     url(r'^log_in',log_in),
     url(r'^admin/', admin.site.urls),
-    url(r'^',views.main),
+    url(r'^landing',views.main),
+    url(r'^register_user',register_user),
+    url(r'^register_event',register_event,name='landing'),
+    url(r'^',event, name='main'),
 
 ]

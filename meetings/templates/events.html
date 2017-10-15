@@ -1,0 +1,104 @@
+{% extends 'main_page.html' %}
+{% load static %}
+
+
+{% block content %}
+<!--<div class="section-top" >
+    <img src="{% static 'img/slider0.jpg' %}" class="img-responsive">
+</div>
+<div class="section-section1">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="text-center">
+                    Новые поступления
+                </h1>
+            </div>
+            {% for product_image in products_images %}
+            {% include 'landing/product_item.html' %}
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+<div class="section section-delivery">
+    <div>
+        <h3>Free shipping</h3>
+    </div>
+</div>
+<div class="section-section2 phones-container">
+    <div class="container">
+        <div class="box">
+            <div class="col-lg-12">
+                <h1 class="text-center">
+                    Телефоны
+                </h1>
+            </div>
+            {% for product_image in products_images_phone %}
+
+            {% include 'landing/product_item.html' %}
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+<div class="section-section3 laptops-container">
+
+    <div class="container">
+        <div class="box">
+            <div class="col-lg-12">
+                <h1 class="text-center">
+                    Ноутбуки
+                </h1>
+            </div>
+            {% for product_image in products_images_laptops %}
+
+            {% include 'landing/product_item.html' %}
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+-->
+<div class="section-section1">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <h1 class="text-center">
+                    <h1>i am event page part</h1>
+                    {% for event in events %}
+
+                    <h4> {{ event.address}}  {{ event.description  }} {{event.created}}</h4>
+                    {% endfor %}
+                    <div class="add-event-btn" >
+                        <button class="btn btn-success">
+                            Добавить встречу
+                        </button>
+                    </div>
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section-section2">
+
+    <div class="container2">
+        <div class="row2">
+            <div class="col-lg-4 col-lg-offset-8">
+                <h1 class="text-center2">
+                    <h1>i am user page part</h1>
+                    {% for user in users %}
+
+                    <h4> {{ user.username}} </h4>
+                    {% endfor %}
+
+
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

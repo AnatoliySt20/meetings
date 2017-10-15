@@ -1,4 +1,8 @@
 
+
+from django.shortcuts import render, redirect
+
+from .forms import MyUserRegister
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
@@ -20,6 +24,23 @@ def log_in(request):
     return render(request, 'login.html', {'form': form})
 
 
-def log_out(request):
-    logout(request)
-    return redirect(reverse('login'))
+from django.contrib.auth import login, authenticate
+from django.shortcuts import render, redirect
+
+from .forms import MyUserRegister
+
+def register_user(request):
+    if request.method == 'POST':
+        form = MyUserRegister(request.POST)
+
+        if form.is_valid():
+            data = form.cleaned_data
+            form.save()
+            #username = form.get('username')
+            #raw_password = form.get('password1')
+            #user = authenticate(username=username, password=raw_password)
+            #login(request, user)
+            return redirect('main')
+    else:
+        form = MyUserRegister()
+    return render(request, 'register_user.html', {'form': form})
